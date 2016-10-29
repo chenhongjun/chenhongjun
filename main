@@ -1,13 +1,14 @@
 #include <iostream>
 
-using namespace std;
+using std::cout;
 
 int main(int argc, char* argv[], char* envp[])
 {
-    for (int i = 0; i < argc; ++i)//顺序打印主函数参数
-        cout << "argv[" << i << "] = " << argv[i] << endl;
     int i = 0;
-    for (char** pe = envp; *pe != nullptr; ++pe)//顺序打印shell传给main函数的环境变量
-        cout << "envp[" << i++ << "]" << *pe << endl;
+    for (; i < argc; ++i)//顺序打印主函数参数
+        cout << "argv[" << i << "] = " << argv[i] << endl;
+    
+    for (i = 0, char** penv = envp; *penv != nullptr; ++penv)//顺序打印shell传给main函数的环境变量
+        cout << "envp[" << i++ << "]" << *penv << endl;
     return 0;
 }
