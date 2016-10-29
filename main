@@ -4,6 +4,10 @@ using namespace std;
 
 int main(int argc, char* argv[], char* envp[])
 {
-    
+    for (int i = 0; i < argc; ++i)//顺序打印主函数参数
+        cout << "argv[" << i << "] = " << argv[i] << endl;
+    int i = 0;
+    for (char** pe = envp; *pe != nullptr; ++pe)//顺序打印shell传给main函数的环境变量
+        cout << "envp[" << i++ << "]" << *pe << endl;
     return 0;
 }
